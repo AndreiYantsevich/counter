@@ -2,11 +2,14 @@ import React, {useState} from 'react';
 import './App.css';
 import {Button} from './components/Buttons/Button';
 import {Display} from './components/Display/Display';
+import {Input} from './components/Input/Input';
 
 function App() {
-    const maxValue = 5
-    const startValue = 0
+    let maxValue = 10
+    let startValue = 0
     const [count, setCount] = useState(startValue)
+
+
 
     function changeCount() {
         if (count < maxValue)
@@ -19,12 +22,23 @@ function App() {
 
     return (
         <div className="App">
-            <div className="container">
+            <div className="container1">
+                <Input/>
+                <Button callback={() => {}} name={'set'}/>
+            </div>
+            <div className="container2">
                 <Display count={count} maxValue={maxValue}/>
                 <Button
-                    changeCount={changeCount}
+                    name={'increment'}
                     count={count}
-                    resetCount={resetCount}
+                    callback={changeCount}
+                    maxValue={maxValue}
+                    startValue={startValue}
+                />
+                <Button
+                    name={'reset'}
+                    count={count}
+                    callback={resetCount}
                     maxValue={maxValue}
                     startValue={startValue}
                 />
