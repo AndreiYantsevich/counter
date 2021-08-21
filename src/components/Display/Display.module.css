@@ -1,0 +1,10 @@
+.display {
+    margin: 20px;
+    grid-column: 2/3;
+    font-size: 40px;
+    border: 5px solid black;
+}
+
+.error_message {
+    color: red;
+}

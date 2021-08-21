@@ -1,0 +1,19 @@
+.button_container {
+    grid-row: 3/4;
+    border-radius: 15px;
+}
+
+.button_container button {
+    width: 170px;
+    line-height: 3rem;
+    border-radius: 2em;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    margin: 15px;
+}
+
