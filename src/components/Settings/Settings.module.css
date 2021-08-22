@@ -1,0 +1,28 @@
+
+.set_input {
+    margin: 10px;
+    background-color: darkslategray;
+    border: 2px solid white;
+    height: 35px;
+    width: 30vh;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    outline: 0;
+}
+
+.error {
+    margin: 10px;
+    background-color: darkslategray;
+    border: 2px solid red;
+    height: 35px;
+    width: 30vh;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 30px;
+    color: red;
+    font-weight: bold;
+    outline: 0;
+}

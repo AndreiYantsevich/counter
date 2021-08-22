@@ -1,12 +1,7 @@
-.button_container {
-    grid-row: 3/4;
+.button {
     border-radius: 15px;
-}
-
-.button_container button {
     width: 170px;
     line-height: 5rem;
-    border-radius: 2em;
     border: none;
     font-size: 1.2rem;
     font-weight: 700;
@@ -16,4 +11,21 @@
     text-align: center;
     margin: 15px;
 }
+
+.disable {
+    border-radius: 15px;
+    width: 170px;
+    line-height: 5rem;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    margin: 15px;
+    overflow: hidden;
+}
+
+
 

@@ -1,46 +1,84 @@
 import React, {useState} from 'react';
 import './App.css';
 import {Button} from './components/Buttons/Button';
-import {Display} from './components/Display/Display';
-import {Input} from './components/Input/Input';
+import {Settings} from './components/Settings/Settings';
+import {Counter} from './components/Counter/Counter';
 
 function App() {
-    let maxValue = 10
-    let startValue = 0
-    const [count, setCount] = useState(startValue)
 
+    const [count, setCount] = useState<number>(0)
+    const [maxValue, setMaxValue] = useState<number>(1)
+    const [startValue, setStartValue] = useState<number>(0)
+    const [settings, setSettings] = useState<boolean>(false)
+    const [error, setError] = useState<string>('')
 
-
-    function changeCount() {
-        if (count < maxValue)
+    const changeCount = () => {
+        if (count < maxValue) {
             setCount(count + 1)
+        } else {
+            setError('Max')
+        }
     }
 
-    function resetCount() {
+    const resetCount = () => {
         setCount(startValue)
+        setError('')
+    }
+
+    const changeMaxValue = (value: number) => {
+        if (value <= startValue || value < 0) {
+            setError('Incorrect');
+        } else {
+            setError('');
+        }
+        setMaxValue(value);
+    }
+
+    const changeStartValue = (value: number) => {
+        if (value >= maxValue || value < 0) {
+            setError('Incorrect')
+        } else {
+            setError('');
+        }
+        setStartValue(value);
+        setCount(startValue);
+    }
+    const onSettings = (value: boolean) => {
+        setSettings(value);
     }
 
     return (
         <div className="App">
             <div className="container1">
-                <Input/>
-                <Button callback={() => {}} name={'set'}/>
+                <Settings
+                    changeStartValue={changeStartValue}
+                    changeMaxValue={changeMaxValue}
+                    startValue={startValue}
+                    maxValue={maxValue}
+                    onSettings={onSettings}
+                    error={error}
+                />
             </div>
             <div className="container2">
-                <Display count={count} maxValue={maxValue}/>
+                <Counter
+                    count={count}
+                    maxValue={maxValue}
+                    settings={settings}
+                />
                 <Button
                     name={'increment'}
                     count={count}
                     callback={changeCount}
                     maxValue={maxValue}
-                    startValue={startValue}
+                    settings={settings}
+                    disabled={error === 'Max'}
                 />
                 <Button
                     name={'reset'}
                     count={count}
                     callback={resetCount}
-                    maxValue={maxValue}
                     startValue={startValue}
+                    settings={settings}
                 />
             </div>
         </div>

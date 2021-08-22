@@ -2,18 +2,26 @@ import style from './Button.module.css';
 
 type PropsType = {
     callback: () => void
-    name: string
     count?: number
     maxValue?: number
     startValue?: number
+    settings?: boolean
+    name: string
+    error?: string
+    disabled?: boolean
 }
 
 export const Button = (props: PropsType) => {
 
+    const styleBtnValue = props.count === props.maxValue && props.count === props.startValue && props.settings ? style.disable : style.button
+
     return (
-        <div className={style.button_container}>
-            <button className={style.button} onClick={props.callback}>{props.name}
-            </button>
-        </div>
+        <button
+            className={styleBtnValue}
+            onClick={props.callback}
+            disabled={props.disabled}
+        >
+            {props.name}
+        </button>
     )
 }
