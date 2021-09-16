@@ -1,0 +1,34 @@
+.item button {
+    width: 100px;
+    height: 50px;
+    display: inline-block;
+    padding: 0.5em 1.4em;
+    margin: 0.2em;
+    border-radius: 2em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #FFFFFF;
+    background-color: steelblue;
+    text-align: center;
+    transition: all 0.2s;
+    border: none;
+}
+
+.item button:hover {
+    background-color: darkblue;
+}
+
+.item button:active {
+    box-shadow: inset 0 0 3px white;
+    transition: 0s;
+}
+
+.item button:disabled {
+    background-color: gray;
+}
+
+
+

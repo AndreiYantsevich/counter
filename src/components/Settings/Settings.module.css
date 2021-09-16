@@ -1,28 +1,40 @@
-
-.set_input {
-    margin: 10px;
-    background-color: darkslategray;
-    border: 2px solid white;
-    height: 35px;
-    width: 30vh;
-    border-radius: 5px;
-    text-align: center;
-    font-size: 30px;
-    color: white;
-    font-weight: bold;
-    outline: 0;
+.settings {
+    height: 400px;
+    width: 500px;
+    border-radius: 30px;
+    margin: 20px;
+    background-color: powderblue;
 }
 
-.error {
-    margin: 10px;
-    background-color: darkslategray;
-    border: 2px solid red;
-    height: 35px;
-    width: 30vh;
-    border-radius: 5px;
-    text-align: center;
-    font-size: 30px;
-    color: red;
+.input_container {
+    height: 58%;
+    border: 2px solid black;
+    border-radius: 15px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.button_container {
+    height: 25%;
+    border: 2px solid black;
+    border-radius: 15px;
+    margin: 0 20px 20px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.description {
+    padding-top: 8px;
+    font-size: 25px;
+    color: black;
     font-weight: bold;
-    outline: 0;
 }

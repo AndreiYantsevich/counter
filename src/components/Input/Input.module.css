@@ -1,0 +1,33 @@
+.superInput {
+    height: 55px;
+    width: 200px;
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.5);
+    background-color: lightyellow;
+    padding: 0 0 0 15px;
+    text-align: center;
+    font: 20px solid Roboto, Helvetica, Arial, sans-serif;
+}
+
+.superInput:focus {
+    outline: none;
+}
+
+.errorInput {
+    height: 55px;
+    width: 200px;
+    border: 1px solid #F44336;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 0 0 15px 4px rgba(249, 85, 85, 0.9);
+    background-color: red;
+    padding: 0 0 0 15px;
+    text-align: center;
+    font: 20px solid Roboto, Helvetica, Arial, sans-serif;
+}
+
+.errorInput:focus {
+    outline: none;
+}
