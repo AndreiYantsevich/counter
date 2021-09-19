@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './Counter.module.css'
 import {useDispatch} from 'react-redux';
-import {resetValueAC, setIncAC} from '../state/count-reducer';
+import {resetValueAC, setIncAC} from '../../store/count-reducer';
 import {Button} from '../Button/Button';
 
 type CounterPropsType = {

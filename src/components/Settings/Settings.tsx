@@ -3,7 +3,7 @@ import style from './Settings.module.css'
 import {Input} from '../Input/Input';
 import {Button} from '../Button/Button';
 import {useDispatch} from 'react-redux';
-import {disabledBtnAC, setErrorAC, setMaxValueAC, setMinValueAC, setValueAC} from '../state/count-reducer';
+import {disabledBtnAC, setErrorAC, setMaxValueAC, setMinValueAC, setValueAC} from '../../store/count-reducer';
 
 type SettingsPropsType = {
     value: number | null

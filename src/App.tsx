@@ -3,7 +3,7 @@ import style from './App.module.css';
 import {useSelector} from 'react-redux';
 import {Settings} from './components/Settings/Settings';
 import {Counter} from './components/Counter/Counter';
-import {AppRootStateType} from './components/state/store';
+import {AppRootStateType} from './store/store';
 
 
 function App() {
