@@ -7,7 +7,7 @@ type ButtonPropsType = {
     disabled?: boolean
 }
 
-export function Button(props: ButtonPropsType) {
+export const Button = (props: ButtonPropsType) => {
 
     return (
         <div className={style.item}>

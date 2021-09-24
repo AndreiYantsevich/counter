@@ -12,7 +12,7 @@ type CounterPropsType = {
     disabled: boolean
 }
 
-export function Counter(props: CounterPropsType) {
+export const Counter = (props: CounterPropsType) => {
 
     const dispatch = useDispatch()
 

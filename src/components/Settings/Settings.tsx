@@ -13,7 +13,7 @@ type SettingsPropsType = {
     disabled: boolean
 }
 
-export function Settings(props: SettingsPropsType) {
+export const Settings = (props: SettingsPropsType) => {
 
     const dispatch = useDispatch()
 

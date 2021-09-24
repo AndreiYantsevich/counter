@@ -6,7 +6,7 @@ import {Counter} from './components/Counter/Counter';
 import {AppRootStateType} from './store/store';
 
 
-function App() {
+const App = () => {
 
     const value = useSelector((state: AppRootStateType) => state.count.value)
     const minValue = useSelector((state: AppRootStateType) => state.count.minValue)
