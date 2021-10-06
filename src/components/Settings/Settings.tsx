@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import style from './Settings.module.css'
 import {Input} from '../Input/Input';
 import {Button} from '../Button/Button';
@@ -13,7 +13,7 @@ type SettingsPropsType = {
     disabled: boolean
 }
 
-export const Settings = (props: SettingsPropsType) => {
+export const Settings: FC<SettingsPropsType> = (props) => {
 
     const dispatch = useDispatch()
 

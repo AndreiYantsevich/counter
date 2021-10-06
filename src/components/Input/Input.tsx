@@ -1,4 +1,4 @@
-import React, {ChangeEvent} from 'react';
+import React, {ChangeEvent, FC} from 'react';
 import style from './Input.module.css'
 
 type InputPropsType = {
@@ -7,7 +7,7 @@ type InputPropsType = {
     error: boolean
 }
 
-export const Input = (props: InputPropsType) => {
+export const Input: FC<InputPropsType> = (props) => {
 
     const setValue = (e: ChangeEvent<HTMLInputElement>) => {
         props.setValue(e.currentTarget.valueAsNumber)

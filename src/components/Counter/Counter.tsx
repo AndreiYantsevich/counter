@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import style from './Counter.module.css'
 import {useDispatch} from 'react-redux';
 import {resetValueAC, setIncAC} from '../../store/count-reducer';
@@ -12,7 +12,7 @@ type CounterPropsType = {
     disabled: boolean
 }
 
-export const Counter = (props: CounterPropsType) => {
+export const Counter: FC<CounterPropsType> = (props) => {
 
     const dispatch = useDispatch()
 

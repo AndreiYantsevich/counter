@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import style from './Button.module.css'
 
 type ButtonPropsType = {
@@ -7,7 +7,7 @@ type ButtonPropsType = {
     disabled?: boolean
 }
 
-export const Button = (props: ButtonPropsType) => {
+export const Button: FC<ButtonPropsType> = (props) => {
 
     return (
         <div className={style.item}>
