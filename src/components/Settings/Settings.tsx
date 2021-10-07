@@ -3,7 +3,7 @@ import style from './Settings.module.css'
 import {Input} from '../Input/Input';
 import {Button} from '../Button/Button';
 import {useDispatch} from 'react-redux';
-import {disabledBtnAC, setErrorAC, setMaxValueAC, setMinValueAC, setValueAC} from '../../store/count-reducer';
+import {CountActions} from '../../store/actions';
 
 type SettingsPropsType = {
     value: number | null
@@ -18,24 +18,24 @@ export const Settings: FC<SettingsPropsType> = (props) => {
     const dispatch = useDispatch()
 
     const setMaxValue = (maxValue: number) => {
-        dispatch(setMaxValueAC(maxValue))
-        dispatch(disabledBtnAC(true))
+        dispatch(CountActions.setMaxValue(maxValue))
+        dispatch(CountActions.disabledButton(true))
     }
 
     const setMinValue = (minValue: number) => {
-        dispatch(setMinValueAC(minValue))
-        dispatch(disabledBtnAC(true))
+        dispatch(CountActions.setMinValue(minValue))
+        dispatch(CountActions.disabledButton(true))
     }
 
     const setValue = () => {
-        dispatch(setValueAC(props.minValue))
-        dispatch(disabledBtnAC(false))
+        dispatch(CountActions.setValue(props.minValue))
+        dispatch(CountActions.disabledButton(false))
     }
 
     if (props.maxValue <= props.minValue || props.minValue < 0) {
-        dispatch(setErrorAC(true))
+        dispatch(CountActions.setError(true))
     } else {
-        dispatch(setErrorAC(false))
+        dispatch(CountActions.setError(false))
     }
 
     return (

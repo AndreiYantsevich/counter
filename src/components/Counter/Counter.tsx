@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
 import style from './Counter.module.css'
 import {useDispatch} from 'react-redux';
-import {resetValueAC, setIncAC} from '../../store/count-reducer';
 import {Button} from '../Button/Button';
+import {CountActions} from '../../store/actions';
 
 type CounterPropsType = {
     value: number | null
@@ -16,8 +16,8 @@ export const Counter: FC<CounterPropsType> = (props) => {
 
     const dispatch = useDispatch()
 
-    const setInc = () => dispatch(setIncAC())
-    const resetValue = () => dispatch(resetValueAC())
+    const setInc = () => dispatch(CountActions.setIncrement())
+    const resetValue = () => dispatch(CountActions.resetValue())
 
     const disabledIncBtn = props.value === props.maxValue || props.disabled
     const disabledResetBtn = props.value === props.minValue || props.disabled
