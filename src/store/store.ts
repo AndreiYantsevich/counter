@@ -1,5 +1,5 @@
 import {combineReducers, createStore} from 'redux';
-import {countReducer} from './count-reducer';
+import countReducer from './count-reducer';
 import {loadState, saveState} from '../utils/localstorage';
 
 const reducers = combineReducers({
