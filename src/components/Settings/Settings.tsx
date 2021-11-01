@@ -1,11 +1,11 @@
-import React, {FC} from 'react';
+import React from 'react';
 import style from './Settings.module.css'
 import {Input} from '../Input/Input';
 import {Button} from '../Button/Button';
 import {useDispatch} from 'react-redux';
-import {ActionCreators} from '../../store/count-reducer';
+import {disabledButtonAC, setErrorAC, setMaxValueAC, setMinValueAC, setValueAC} from '../../store/count-reducer';
 
-type SettingsPropsType = {
+type PropsType = {
     value: number | null
     minValue: number
     maxValue: number
@@ -13,29 +13,29 @@ type SettingsPropsType = {
     disabled: boolean
 }
 
-export const Settings: FC<SettingsPropsType> = (props) => {
+export const Settings: React.FC<PropsType> = (props) => {
 
     const dispatch = useDispatch()
 
     const setMaxValue = (maxValue: number) => {
-        dispatch(ActionCreators.setMaxValue(maxValue))
-        dispatch(ActionCreators.disabledButton(true))
+        dispatch(setMaxValueAC(maxValue))
+        dispatch(disabledButtonAC(true))
     }
 
     const setMinValue = (minValue: number) => {
-        dispatch(ActionCreators.setMinValue(minValue))
-        dispatch(ActionCreators.disabledButton(true))
+        dispatch(setMinValueAC(minValue))
+        dispatch(disabledButtonAC(true))
     }
 
     const setValue = () => {
-        dispatch(ActionCreators.setValue(props.minValue))
-        dispatch(ActionCreators.disabledButton(false))
+        dispatch(setValueAC(props.minValue))
+        dispatch(disabledButtonAC(false))
     }
 
     if (props.maxValue <= props.minValue || props.minValue < 0) {
-        dispatch(ActionCreators.setError(true))
+        dispatch(setErrorAC(true))
     } else {
-        dispatch(ActionCreators.setError(false))
+        dispatch(setErrorAC(false))
     }
 
     return (

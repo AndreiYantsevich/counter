@@ -1,13 +1,13 @@
-import React, {FC} from 'react';
+import React from 'react';
 import style from './Button.module.css'
 
-type ButtonPropsType = {
+type PropsType = {
     title: string,
     onClick?: () => void
     disabled?: boolean
 }
 
-export const Button: FC<ButtonPropsType> = (props) => {
+export const Button: React.FC<PropsType> = (props) => {
 
     return (
         <div className={style.item}>

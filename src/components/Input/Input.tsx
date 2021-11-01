@@ -1,13 +1,13 @@
-import React, {ChangeEvent, FC} from 'react';
+import React, {ChangeEvent} from 'react';
 import style from './Input.module.css'
 
-type InputPropsType = {
+type PropsType = {
     value: number
     setValue: (value: number) => void
     error: boolean
 }
 
-export const Input: FC<InputPropsType> = (props) => {
+export const Input: React.FC<PropsType> = (props) => {
 
     const setValue = (e: ChangeEvent<HTMLInputElement>) => {
         props.setValue(e.currentTarget.valueAsNumber)

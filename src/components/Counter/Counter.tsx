@@ -1,10 +1,10 @@
-import React, {FC} from 'react';
+import React from 'react';
 import style from './Counter.module.css'
 import {useDispatch} from 'react-redux';
 import {Button} from '../Button/Button';
-import {ActionCreators} from '../../store/count-reducer';
+import {resetValueAC, setIncrementAC} from '../../store/count-reducer';
 
-type CounterPropsType = {
+type PropsType = {
     value: number | null
     minValue: number
     maxValue: number
@@ -12,12 +12,12 @@ type CounterPropsType = {
     disabled: boolean
 }
 
-export const Counter: FC<CounterPropsType> = (props) => {
+export const Counter: React.FC<PropsType> = (props) => {
 
     const dispatch = useDispatch()
 
-    const setInc = () => dispatch(ActionCreators.setIncrement())
-    const resetValue = () => dispatch(ActionCreators.resetValue())
+    const setIncrement = () => dispatch(setIncrementAC())
+    const resetValue = () => dispatch(resetValueAC())
 
     const disabledIncBtn = props.value === props.maxValue || props.disabled
     const disabledResetBtn = props.value === props.minValue || props.disabled
@@ -33,7 +33,7 @@ export const Counter: FC<CounterPropsType> = (props) => {
                             className={props.value === props.maxValue ? `${style.errorCount} ${style.count}` : style.count}> {props.value}</div>}
             </div>
             <div className={style.button_container}>
-                <Button title={'Inc'} onClick={setInc} disabled={disabledIncBtn}/>
+                <Button title={'Inc'} onClick={setIncrement} disabled={disabledIncBtn}/>
                 <Button title={'Reset'} onClick={resetValue} disabled={disabledResetBtn}/>
             </div>
         </div>

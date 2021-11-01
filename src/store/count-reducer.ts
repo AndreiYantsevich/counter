@@ -1,47 +1,45 @@
-export enum Types {
-    SET_MAX_VALUE = 'SET_MAX_VALUE',
-    SET_MIN_VALUE = 'SET_MIN_VALUE',
-    SET_ERROR = 'SET_ERROR',
-    SET_VALUE = 'SET_VALUE',
-    SET_INCREMENT = 'SET_INCREMENT',
-    RESET_VALUE = 'RESET_VALUE',
-    DISABLED_BUTTON = 'DISABLED_BUTTON',
-}
+const SET_MAX_VALUE = 'SET_MAX_VALUE';
+const SET_MIN_VALUE = 'SET_MIN_VALUE';
+const SET_ERROR = 'SET_ERROR';
+const SET_VALUE = 'SET_VALUE';
+const SET_INCREMENT = 'SET_INCREMENT';
+const RESET_VALUE = 'RESET_VALUE';
+const DISABLED_BUTTON = 'DISABLED_BUTTON';
 
-export interface SetMaxValueAction {
-    type: Types.SET_MAX_VALUE;
+type SetMaxValueAction = {
+    type: 'SET_MAX_VALUE';
     payload: { maxValue: number; }
 }
 
-export interface SetMinValueAction {
-    type: Types.SET_MIN_VALUE;
+type SetMinValueAction = {
+    type: 'SET_MIN_VALUE';
     payload: { minValue: number; }
 }
 
-export interface SetErrorAction {
-    type: Types.SET_ERROR;
+type SetErrorAction = {
+    type: 'SET_ERROR';
     payload: { error: boolean; }
 }
 
-export interface SetValueAction {
-    type: Types.SET_VALUE;
+type SetValueAction = {
+    type: 'SET_VALUE';
     payload: { value: number; }
 }
 
-export interface SetIncrementAction {
-    type: Types.SET_INCREMENT;
+type SetIncrementAction = {
+    type: 'SET_INCREMENT';
 }
 
-export interface ResetValueAction {
-    type: Types.RESET_VALUE;
+type ResetValueAction = {
+    type: 'RESET_VALUE';
 }
 
-export interface DisabledButtonAction {
-    type: Types.DISABLED_BUTTON;
+type DisabledButtonAction = {
+    type: 'DISABLED_BUTTON';
     payload: { disabled: boolean; }
 }
 
-export type CountAction =
+type ActionType =
     SetMaxValueAction |
     SetMinValueAction |
     SetErrorAction |
@@ -60,41 +58,40 @@ const initialState = {
 
 type InitialStateType = typeof initialState
 
-export default function countReducer(state: InitialStateType = initialState, action: CountAction): InitialStateType {
+export default function countReducer(state: InitialStateType = initialState, action: ActionType): InitialStateType {
     switch (action.type) {
-        case Types.SET_MAX_VALUE:
+        case SET_MAX_VALUE:
             return {...state, maxValue: action.payload.maxValue}
-        case Types.SET_MIN_VALUE:
+        case SET_MIN_VALUE:
             return {...state, minValue: action.payload.minValue}
-        case Types.SET_ERROR:
+        case SET_ERROR:
             return {...state, error: action.payload.error}
-        case Types.SET_VALUE:
+        case SET_VALUE:
             return {...state, value: action.payload.value}
-        case Types.SET_INCREMENT:
+        case SET_INCREMENT:
             let newValue = state.value
             if (newValue != null && newValue < state.maxValue) {
                 newValue += 1
             }
             return {...state, value: newValue}
-        case Types.RESET_VALUE:
+        case RESET_VALUE:
             const resetValue = state.minValue
             return {...state, value: resetValue}
-        case Types.DISABLED_BUTTON:
+        case DISABLED_BUTTON:
             return {...state, disabled: action.payload.disabled}
         default:
             return state
     }
 }
 
-export const ActionCreators = {
-    setMaxValue: (maxValue: number): SetMaxValueAction => ({type: Types.SET_MAX_VALUE, payload: {maxValue}}),
-    setMinValue: (minValue: number): SetMinValueAction => ({type: Types.SET_MIN_VALUE, payload: {minValue}}),
-    setError: (error: boolean): SetErrorAction => ({type: Types.SET_ERROR, payload: {error}}),
-    setValue: (value: number): SetValueAction => ({type: Types.SET_VALUE, payload: {value}}),
-    setIncrement: (): SetIncrementAction => ({type: Types.SET_INCREMENT}),
-    resetValue: (): ResetValueAction => ({type: Types.RESET_VALUE}),
-    disabledButton: (disabled: boolean): DisabledButtonAction => ({
-        type: Types.DISABLED_BUTTON,
-        payload: {disabled}
-    })
-}
+
+export const setMaxValueAC = (maxValue: number): SetMaxValueAction => ({type: SET_MAX_VALUE, payload: {maxValue}})
+export const setMinValueAC = (minValue: number): SetMinValueAction => ({type: SET_MIN_VALUE, payload: {minValue}})
+export const setErrorAC = (error: boolean): SetErrorAction => ({type: SET_ERROR, payload: {error}})
+export const setValueAC = (value: number): SetValueAction => ({type: SET_VALUE, payload: {value}})
+export const setIncrementAC = (): SetIncrementAction => ({type: SET_INCREMENT})
+export const resetValueAC = (): ResetValueAction => ({type: RESET_VALUE})
+export const disabledButtonAC = (disabled: boolean): DisabledButtonAction => ({
+    type: DISABLED_BUTTON,
+    payload: {disabled}
+})
