@@ -7,7 +7,7 @@ type PropsType = {
     error: boolean
 }
 
-export const Input: React.FC<PropsType> = (props) => {
+export const Input: React.FC<PropsType> = React.memo((props) => {
 
     const setValue = (e: ChangeEvent<HTMLInputElement>) => {
         props.setValue(e.currentTarget.valueAsNumber)
@@ -23,4 +23,4 @@ export const Input: React.FC<PropsType> = (props) => {
             />
         </div>
     )
-}
+});

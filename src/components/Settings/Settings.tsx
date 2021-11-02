@@ -13,7 +13,7 @@ type PropsType = {
     disabled: boolean
 }
 
-export const Settings: React.FC<PropsType> = (props) => {
+export const Settings: React.FC<PropsType> = React.memo((props) => {
 
     const dispatch = useDispatch()
 
@@ -59,5 +59,5 @@ export const Settings: React.FC<PropsType> = (props) => {
             </div>
         </div>
     )
-}
+});
 

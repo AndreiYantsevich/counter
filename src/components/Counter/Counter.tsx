@@ -12,7 +12,7 @@ type PropsType = {
     disabled: boolean
 }
 
-export const Counter: React.FC<PropsType> = (props) => {
+export const Counter: React.FC<PropsType> = React.memo((props) => {
 
     const dispatch = useDispatch()
 
@@ -38,4 +38,4 @@ export const Counter: React.FC<PropsType> = (props) => {
             </div>
         </div>
     )
-}
+});
