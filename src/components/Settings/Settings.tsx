@@ -3,7 +3,13 @@ import style from './Settings.module.css'
 import {Input} from '../Input/Input';
 import {Button} from '../Button/Button';
 import {useDispatch} from 'react-redux';
-import {disabledButtonAC, setErrorAC, setMaxValueAC, setMinValueAC, setValueAC} from '../../store/count-reducer';
+import {
+    disabledButtonAC,
+    setErrorAC,
+    setMaxValueAC,
+    setMinValueAC,
+    setValueAC
+} from '../../store/count-reducer';
 
 type PropsType = {
     value: number | null
@@ -13,7 +19,7 @@ type PropsType = {
     disabled: boolean
 }
 
-export const Settings: React.FC<PropsType> = React.memo((props) => {
+export const Settings: React.FC<PropsType> = (props) => {
 
     const dispatch = useDispatch()
 
@@ -44,20 +50,23 @@ export const Settings: React.FC<PropsType> = React.memo((props) => {
                 <div className={style.item}>
                     <div className={style.description}>Max value:</div>
                     <div>
-                        <Input value={props.maxValue} setValue={setMaxValue} error={props.error}/>
+                        <Input value={props.maxValue} setValue={setMaxValue}
+                               error={props.error}/>
                     </div>
                 </div>
                 <div className={style.item}>
                     <div className={style.description}>Min value:</div>
                     <div>
-                        <Input value={props.minValue} setValue={setMinValue} error={props.error}/>
+                        <Input value={props.minValue} setValue={setMinValue}
+                               error={props.error}/>
                     </div>
                 </div>
             </div>
             <div className={style.button_container}>
-                <Button title={'Set'} onClick={setValue} disabled={!props.disabled || props.error}/>
+                <Button title={'Set'} onClick={setValue}
+                        disabled={!props.disabled || props.error}/>
             </div>
         </div>
     )
-});
+};
 

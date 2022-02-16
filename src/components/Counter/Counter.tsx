@@ -12,7 +12,7 @@ type PropsType = {
     disabled: boolean
 }
 
-export const Counter: React.FC<PropsType> = React.memo((props) => {
+export const Counter: React.FC<PropsType> = (props) => {
 
     const dispatch = useDispatch()
 
@@ -28,7 +28,8 @@ export const Counter: React.FC<PropsType> = React.memo((props) => {
                 {props.error
                     ? <div className={style.error}>Incorrect value!</div>
                     : props.disabled
-                        ? <div className={style.description}>Enter values and press 'Set'</div>
+                        ? <div className={style.description}>Enter values and press
+                            'Set'</div>
                         : <div
                             className={props.value === props.maxValue ? `${style.errorCount} ${style.count}` : style.count}> {props.value}</div>}
             </div>
@@ -38,4 +39,4 @@ export const Counter: React.FC<PropsType> = React.memo((props) => {
             </div>
         </div>
     )
-});
+};
